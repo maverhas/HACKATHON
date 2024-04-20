@@ -7,8 +7,32 @@ const level2Router = require('./routers/level2.js')
 const level3Router = require('./routers/level3.js')
 const level4Router = require('./routers/level4.js')
 const app = express()
-
 const port = 3000
+const mongoose = require("mongoose")
+const session = require('express-session')
+const uri = "mongodb+srv://verhasseltmartin:Inajoy_2024@dbhackathon.hv5fgna.mongodb.net/?retryWrites=true&w=majority&appName=DBHACKATHON";
+mongoose.connect(uri)
+.then(() => {
+    console.log('Connected to MongoDB');
+})
+.catch((error) => {
+    console.error('Error connecting to MongoDB:', error);
+});
+var bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: false }))
+app.set("views", path.join(__dirname, 'static', 'views'))
+app.set("view engine", "ejs");
+app.use(t)
+var login = require("./USERJS/login")
+var signup = require("./USERJS/signup")
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+  }))
+app.use("/login", login)
+app.use("/signup", signup)
 
 const levels = [
     {  
