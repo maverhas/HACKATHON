@@ -7,11 +7,13 @@ const level3Router = require('./routers/level3.js')
 const level4Router = require('./routers/level4.js')
 const app = express()
 const port = 3000
+const env = require('dotenv')
 const mongoose = require("mongoose")
 var login = require("./routers/login.js")
 var signup = require("./routers/signup.js")
 
-const uri = "mongodb+srv://verhasseltmartin:Inajoy_2024@dbhackathon.hv5fgna.mongodb.net/?retryWrites=true&w=majority&appName=DBHACKATHON";
+env.config();
+const uri = process.env.MONGODB_URI;
 
 mongoose.connect(uri)
 .then(() => {
@@ -39,7 +41,7 @@ app.use("/signup", signup)
 const levels = [
     {  
         id: 1,
-        code:'6702',
+        code: process.env.LEVEL_1_CODE,
         url: '/levels/1',
         title: 'Niveau 1',
         hint: "Va plus loin que le bout de ton nez",
@@ -48,7 +50,7 @@ const levels = [
     },
     {
         id: 2,
-        code:'8034',
+        code: process.env.LEVEL_2_CODE,
         url: '/levels/2',
         title: 'Niveau 2',
         description: 'Celui là va probablement te casser le crâne.',
@@ -56,7 +58,7 @@ const levels = [
     },
     {  
         id: 3,
-        code:'9952',
+        code: process.env.LEVEL_3_CODE,
         url: '/levels/3',
         title: 'Niveau 3',
         description: 'Pas mal, mais bonne chance pour celui-ci',
@@ -64,7 +66,7 @@ const levels = [
     },
     {  
         id: 4,
-        code:'1717',
+        code: process.env.LEVEL_4_CODE,
         url: '/levels/4',
         title: 'Niveau 4',
         description: "Wow, Impressionant ! Celui là est impossible.",
