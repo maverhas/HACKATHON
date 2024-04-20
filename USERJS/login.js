@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
+const session = require('express-session')
 const uri = "mongodb+srv://verhasseltmartin:FAw0Jf9YIKiZPBiz@dbhackathon.hv5fgna.mongodb.net/?retryWrites=true&w=majority&appName=DBHACKATHON";
 const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
 async function run() {
@@ -17,5 +18,12 @@ async function run() {
 run().catch(console.dir);
 router.get('/', (req, res) => {
     res.render("login.ejs")
+})
+router.post('/', (req, res) => {
+  if (!req.body.username || !req.body.password){
+    res.render('/', {message: "Provide username and password"})
+  } else {
+    res.send("Yes")
+  }
 })
 module.exports = router
