@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
         if (docs == null) {
           console.log("NOt logged in")
         } else {
-          console.log("SUccess")
+          req.session.data = docs
           console.log(docs)
         }
     })
