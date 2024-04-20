@@ -8,7 +8,11 @@ const level4Router = require('./routers/level4.js')
 const app = express()
 const port = 3000
 const mongoose = require("mongoose")
+var login = require("./routers/login.js")
+var signup = require("./routers/signup.js")
+
 const uri = "mongodb+srv://verhasseltmartin:Inajoy_2024@dbhackathon.hv5fgna.mongodb.net/?retryWrites=true&w=majority&appName=DBHACKATHON";
+
 mongoose.connect(uri)
 .then(() => {
     console.log('Connected to MongoDB');
@@ -16,18 +20,20 @@ mongoose.connect(uri)
 .catch((error) => {
     console.error('Error connecting to MongoDB:', error);
 });
+
 var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
+
 app.set("views", path.join(__dirname, 'static', 'views'))
 app.set("view engine", "ejs");
-var login = require("./routers/login.js")
-var signup = require("./routers/signup.js")
+
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
     cookie: { secure: true }
-  }))
+}))
+
 app.use("/login", login)
 app.use("/signup", signup)
 
@@ -85,12 +91,6 @@ app.use(express.static('static'));
 
 app.set("views", path.join(__dirname, 'static', 'views'));
 app.set("view engine", "ejs");
-
-app.use(session({
-    secret: 'secret',
-    resave: false,
-    saveUninitialized: true,
-}));
 
 app.use('/levels/1', level1Router);
 app.use('/levels/2', level2Router);
