@@ -1,6 +1,5 @@
 const express = require('express')
 const path = require('path')
-const bodyParser = require('body-parser');
 const session = require('express-session');
 const level1Router = require('./routers/level1.js')
 const level2Router = require('./routers/level2.js')
@@ -9,7 +8,6 @@ const level4Router = require('./routers/level4.js')
 const app = express()
 const port = 3000
 const mongoose = require("mongoose")
-const session = require('express-session')
 const uri = "mongodb+srv://verhasseltmartin:Inajoy_2024@dbhackathon.hv5fgna.mongodb.net/?retryWrites=true&w=majority&appName=DBHACKATHON";
 mongoose.connect(uri)
 .then(() => {
@@ -22,9 +20,8 @@ var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.set("views", path.join(__dirname, 'static', 'views'))
 app.set("view engine", "ejs");
-app.use(t)
-var login = require("./USERJS/login")
-var signup = require("./USERJS/signup")
+var login = require("./routers/login.js")
+var signup = require("./routers/signup.js")
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
