@@ -118,6 +118,10 @@ app.post('/submit', (req, res) => {
     });
 });
 
+app.get('/leaderboard', (req, res) => {
+    res.render('leaderboard.ejs');
+})
+
 app.listen(port, () => {
     console.log(`App running on port ${port}`);
 });
