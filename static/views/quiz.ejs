@@ -19,6 +19,8 @@
 
         <script>
             document.getElementById('quizForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Empêcher le rechargement de la page par défaut
+
                 var code = document.getElementById('code').value;
                 fetch('/submit', {
                     method: 'POST',
@@ -29,12 +31,12 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data);
-
                     if (data.error) {
-                        console.log("Mauvais code");
+                        alert("Mauvais code");
                     } else {
-                        console.log("Bon code");
+                        alert("Bravo !");
+                        window.location.reload();
+                        document.getElementById('code').value = '';
                     }
                 })
                 .catch(error => console.error('Error:', error));

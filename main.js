@@ -17,7 +17,7 @@ const levels = [
         url: '/levels/1',
         title: 'Niveau 1',
         hint: "Va plus loin que le bout de ton nez",
-        category: 'Stegonographt',
+        category: 'Sténographie',
         description: "Remue toi les balôches on sent que t'as la pétoche",
     },
     {
@@ -85,10 +85,16 @@ app.get('/quiz', (req, res) => {
         req.session.level = 1;
     }
 
-    res.render('quiz.ejs', {
-        'level': findLevel(req.session.level),
-        'response': res,
-    });
+    if (req.session.level > 4) {
+        req.session.level = 1;
+        res.render('win.ejs');
+    }
+    else {
+        res.render('quiz.ejs', {
+            'level': findLevel(req.session.level),
+            'response': res,
+        });
+    }
 });
 
 app.post('/submit', (req, res) => {
@@ -105,16 +111,15 @@ app.post('/submit', (req, res) => {
     if (code !== level.code) {
         return res.json({
             error: true,
-            reason: 'Wrong code.', 
+            reason: 'Wrong code.',
         });
     }
 
     req.session.level += 1;
-    console.log(`level is ${req.session.level}`);
 
     return res.json({
         error: false,
-        reason: '', 
+        reason: '',
     });
 });
 
