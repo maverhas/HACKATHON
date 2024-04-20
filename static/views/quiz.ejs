@@ -1,0 +1,44 @@
+<html lang="en">
+    <%- include('includes/head.ejs', { 'styles': [ ] }) %>
+    <body>        
+        <%- include('includes/navbar.ejs') %>
+        <main>
+            <h1><%= level.title %></h1>
+            <p><%= level.description %></p>
+
+            <a href="<%= level.url %>" target="_blank">Démarrer le challenge</a>
+            
+            <h3>Validation</h3>
+
+            <form action="/submit" method="post" id="quizForm">
+                <label for="code">Entrer le code</label>
+                <input type="text" id="code" name="code"/>
+                <button type="submit">Envoyer</button>
+            </form>
+        </main>
+
+        <script>
+            document.getElementById('quizForm').addEventListener('submit', function(event) {
+                var code = document.getElementById('code').value;
+                fetch('/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ code: code })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+
+                    if (data.error) {
+                        console.log("Mauvais code");
+                    } else {
+                        console.log("Bon code");
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            });
+        </script>
+    </body>
+</html>
