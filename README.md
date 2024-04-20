@@ -1,1 +1,1 @@
-requirements : install node.js
+requirements : install node.js, ejs, mongoose
