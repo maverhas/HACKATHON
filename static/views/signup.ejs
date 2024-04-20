@@ -1,10 +1,9 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <%- include('includes/head.ejs', { 'styles': ['styles/header.css', 'styles/main.css'] }) %>
+    <body>
+        <%- include('includes/navbar.ejs') %>
+    </body>
+</html>
 <style>
     .header {
         display: flex;
@@ -37,7 +36,7 @@
         <input type="text" placeholder="Enter Username" name="username" required>
         <label for="password" class="password"><b>Password</b></label>
         <input type="password" placeholder="Enter password" name="password" required>
-        <button type="submit">Login</button>
+        <button type="submit">Signup</button>
     </div>
     </form>
 </body>
