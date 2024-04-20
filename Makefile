@@ -1,4 +1,7 @@
 MAIN=main.js
 
 run:
-	node $(MAIN)
+	@node $(MAIN)
+
+update:
+	@npm install -y
