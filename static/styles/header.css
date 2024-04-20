@@ -1,24 +1,13 @@
 header {
-    margin: 0;
     background-color: #333;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-}
-
-.home-button {
-    background-color: #90bed8;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    margin-right: 20px; /* Adjust the spacing between the button and the navigation */
+    padding: 10px 0;
 }
 
 nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    text-align: center;
 }
 
 nav ul li {
@@ -37,3 +26,4 @@ nav ul li a {
 nav ul li a:hover {
     background-color: #90bed8;
 }
+
