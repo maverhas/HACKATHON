@@ -31,7 +31,6 @@ app.use(session({
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true }
 }))
 
 app.use("/login", login)
@@ -106,6 +105,8 @@ app.get('/quiz', (req, res) => {
         req.session.level = 1;
     }
 
+    console.log(`Level is '${req.session.level}'`);
+
     if (req.session.level > 4) {
         req.session.level = 1;
         res.render('win.ejs');
@@ -119,9 +120,13 @@ app.get('/quiz', (req, res) => {
 });
 
 app.post('/submit', (req, res) => {
+    
     if (!req.session.level) {
         return res.status(403).redirect('/');
     }
+
+    console.log(`Level is '${req.session.level}'`);
+    console.log(req.session.level);
     
     const level = findLevel(req.session.level);
     if (!level) {
