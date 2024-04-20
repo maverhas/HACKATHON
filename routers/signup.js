@@ -9,7 +9,7 @@ const User = require("../DATABASE/user")
 
 
 router.get('/', (req, res) => {
-    res.render("login.ejs")
+    res.render("signup.ejs")
 })
 router.post('/', (req, res) => {
   if (!req.body.username || !req.body.password){
