@@ -16,9 +16,9 @@ const levels = [
         code:'6702',
         url: '/levels/1',
         title: 'Niveau 1',
-        hint: "Va plus loin que le bout de ton nez",
+        hint: "pop up",
         category: 'Stegonographt',
-        description: "Remue toi les balôches on sent que t'as la pétoche",
+        description: "Trouve les bonnes combinaisons mais gare à toi, le net est parsemé de publicités à gogo",
     },
     {
         id: 2,
