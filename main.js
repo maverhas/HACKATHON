@@ -12,6 +12,18 @@ app.get('/', (req, res) => {
     res.render('index.ejs');
 })
 
+app.get('/quiz', (req, res) => {
+    res.render('quiz.ejs');
+})
+
+app.get('/leaderboard', (req, res) => {
+    res.render('leaderboard.ejs');
+})
+
+app.get('/level1', (req, res) => {
+    res.render('level1.ejs');
+})
+
 app.listen(port, ()=> {
     console.log(`App running on port ${port}`)
 })
