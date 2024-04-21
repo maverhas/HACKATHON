@@ -220,7 +220,7 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid corrupti cum maxime rerum magnam temporibus ipsam vitae omnis reiciendis similique, 5 laboriosam nulla suscipit natus doloribus recusandae dolores minima, est tempore.</p>
                 </div>
                 <div class="card3">
-                    <span class="not-close-btn">&times;</span>
+                    <span class="close-btn">&times;</span>
                     <h2>bel essaie 6</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid corrupti cum maxime rerum magnam temporibus ipsam vitae omnis reiciendis similique, laboriosam nulla suscipit natus doloribus recusandae dolores minima, est tempore.</p>
                 </div>
@@ -325,24 +325,56 @@
 
         </style>
         <script>
+            //le code n'est pas 6598
             let combi = [];
-            const solution = [3, 2, 4, 1, 5, 6];
-            const code1 = 6702;
-
-            function addInList(number) {
+            const solution_finale = [3, 2, 4, 1, 6, 5];
+            const la_solution = [3, 2, 4, 5, 1, 6];
+            const solucion = [3, 2, 4, 6, 1, 5];
+            const solu = [3, 2, 4, 6, 5, 1];
+            const s = [3, 2, 4, 1, 5, 6];
+            const soluce = [3, 2, 4, 5, 6, 1];
+            const la_s = [3, 2, 1, 4, 6, 5];
+            function addinList(number) {
                 combi.push(number);
 
                 console.log(combi)
-                if (arraysEqual(combi, solution)) {
-                    alert("le premier code est : " + code1);
+                if (arraysEqual(combi, s)) {
+                    alert(6721);
                 }
                 else if(combi.length > 6){
                     alert("mauvaise combinaison");
                     combi = [];
                 }
             }
+            function ArraysEqual{
+                if (arr[3] == arr[1] && arr[2] == arr[2]){
+                    alert(2250);
+                }
+            }
+            function addInList(number) {
+                combi.push(number);
+
+                console.log(combi)
+                if (arraysEqual(combi, s)) {
+                    alert(6702);
+                }
+                else if(combi.length > 6){
+                    alert("mauvaise combinaison");
+                    combi = [];
+                }
+            }
+            function arrayEqual(arr1, arr2) {
+                arr2 = arr2;
+                if (arr1.length !== arr2.length) return false;
+                for (let i = 0; i < arr1.length; i++) {
+                    if (arr1[i] !== arr2[i]) return false;
+                }
+                alert(3643);
+                return true;
+            }
 
             function arraysEqual(arr1, arr2) {
+                arr2 = arr2.reverse();
                 if (arr1.length !== arr2.length) return false;
                 for (let i = 0; i < arr1.length; i++) {
                     if (arr1[i] !== arr2[i]) return false;

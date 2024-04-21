@@ -46,7 +46,7 @@ const levels = [
         title: 'Niveau 1',
         hint: "Va plus loin que le bout de ton nez",
         category: 'Sténographie',
-        description: "Remue toi les balôches on sent que t'as la pétoche",
+        description: "Trouve les bonnes combinaisons dans le bon ordre mais gare à toi, le net est parsemé de publicités à gogo",
     },
     {
         id: 2,
