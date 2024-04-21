@@ -2,20 +2,18 @@
     <%- include('includes/head.ejs', { 'styles': [ 'styles/header.css','styles/quiz.css' ] }) %>
     <body>        
         <%- include('includes/navbar.ejs') %>
-        <main class="container_quiz">
 
-<%- include('includes/navbar.ejs') %>
-<main class="container_quiz">
-    <h1><%= level.title %></h1>
-    <p><%= level.description %></p>
-    <a href="<%= level.url %>" target="_blank">Démarrer le challenge</a>
-    <h3>Validation</h3>
-    <form action="/submit" method="post" id="quizForm">
-        <label for="code">Entrer le code</label>
-        <input type="text" id="code" name="code"/>
-        <button type="submit">Envoyer</button>
-    </form>
-</main>
+    <main class="container_quiz">
+        <h1><%= level.title %></h1>
+        <p><%= level.description %></p>
+        <a href="<%= level.url %>" target="_blank">Démarrer le challenge</a>
+        <h3>Validation</h3>
+        <form action="/submit" method="post" id="quizForm">
+            <label for="code">Entrer le code</label>
+            <input type="text" id="code" name="code"/>
+            <button type="submit">Envoyer</button>
+        </form>
+    </main>
 <style>
     
     .container_quiz {
