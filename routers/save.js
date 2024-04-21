@@ -4,7 +4,7 @@ const User = require("../DATABASE/user")
 
 
 router.get('/', (req, res) => {
-    res.render("endgame.ejs")
+    res.render("save.ejs")
 })
 
 router.post("/", (req, res) => {
