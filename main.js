@@ -43,9 +43,9 @@ const levels = [
         code: "6702",
         url: '/levels/1',
         title: 'Niveau 1',
-        hint: "Va plus loin que le bout de ton nez",
+        hint: "inspect la page",
         category: 'Sténographie',
-        description: "Trouve les bonnes combinaisons dans le bon ordre mais gare à toi, le net est parsemé de publicités à gogo",
+        description: "Trouve les bonnes combinaisons dans le bon ordre",
     },
     {
         id: 2,
