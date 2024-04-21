@@ -5,6 +5,7 @@ const level1Router = require('./routers/level1.js')
 const level2Router = require('./routers/level2.js')
 const level3Router = require('./routers/level3.js')
 const level4Router = require('./routers/level4.js')
+const temp = require('./static/views/temp.ejs')
 const leaderboardRouter = require('./routers/leaderboard.js')
 const saverouter = require('./routers/save.js')
 const app = express()
@@ -35,53 +36,6 @@ app.use(session({
     saveUninitialized: true,
 }))
 
-
-
-const levels = [
-    {  
-        id: 1,
-        code: "6702",
-        url: '/levels/1',
-        title: 'Niveau 1: Deadlock',
-        description: "Le deadlock est le cadenas le moins securisé du monde...",
-        hint: "N'essaie pas toutes les combinaisons.",
-    },
-    {
-        id: 2,
-        code: "8034",
-        url: '/levels/2',
-        title: 'Niveau 2: Vite vite, toujours plus vite !',
-        description: 'Ne gaspillez plus de temps. Cliquez vite, encore plus vite.',
-        hint: ''
-    },
-    {  
-        id: 3,
-        code: "9952",
-        url: '/levels/3',
-        title: 'Niveau 3: Sacré Alan',
-        description: "Alan est très souvent sur la lune. Malheureusement, il a complètement oublié son mot de passe. Heureusement pour lui tu es un roi de la débrouille et tu lui as promis de récupérer son mot de passe !",
-        hint: 'Que fais la fonction decode ?'
-    },
-    {  
-        id: 4,
-        code: "1717",
-        url: '/levels/4',
-        title: 'Niveau 4: Café Passion',
-        description: "Café Passion est une entreprise qui adore son café.",
-        hint: "J'aime énormément le café mais ce que j'aime par dessus tout ce sont les images de café !"
-    },
-];
-
-const findLevel = (id) => {
-    for (const level of levels) {
-        if (level.id === id) {
-            return level;
-        }
-    }
-
-    return null;
-}
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -107,19 +61,23 @@ app.get('/quiz', (req, res) => {
         req.session.level = 1;
     }
 
-    console.log(`Level is '${req.session.level}'`);
-
     if (req.session.level > 4) {
         req.session.level = 1;
         res.render('win.ejs');
     }
     else {
         res.render('quiz.ejs', {
-            'level': findLevel(req.session.level),
+            'level': temp(req.session.level),
             'response': res,
         });
     }
 });
+
+const crypto = require('crypto')
+
+function sha256(input) {
+    return crypto.createHash('sha256').update(input).digest('hex');
+}
 
 app.post('/submit', (req, res) => {
     
@@ -127,16 +85,15 @@ app.post('/submit', (req, res) => {
         return res.status(403).redirect('/');
     }
 
-    console.log(`Level is '${req.session.level}'`);
     console.log(req.session.level);
     
-    const level = findLevel(req.session.level);
+    const level = temp(req.session.level);
     if (!level) {
         return res.status(404).redirect('/');
     }
 
     const code = req.body.code;
-    if (code !== level.code) {
+    if (sha256(code) !== level.code_hash) {
         return res.json({
             error: true,
             reason: 'Wrong code.',
