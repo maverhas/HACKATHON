@@ -1,8 +1,104 @@
 <html lang="en">
     <%- include('../../includes/head.ejs', { 'styles': [ ] }) %>
+    <head>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+    
+            header {
+                background-color: #39220a;
+                color: #fff;
+                padding: 20px;
+                text-align: center;
+            }
+    
+            nav ul {
+                list-style-type: none;
+                padding: 0;
+            }
+    
+            nav ul li {
+                display: inline;
+                margin-right: 20px;
+            }
+    
+            nav ul li a {
+                color: #fff;
+                text-decoration: none;
+            }
+    
+            main {
+                padding: 20px;
+            }
+    
+            section {
+                margin-bottom: 40px;
+            }
+    
+            section h2 {
+                color: #39220a;
+            }
+    
+            footer {
+                background-color: #39220a;
+                color: #fff;
+                padding: 10px;
+                text-align: center;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+            }
+
+            img {
+                float: right;
+            }
+
+        </style>
+    </head>
     <body>
+        
+        <header>
+            <h1>Bienvenue chez Café Passion</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
         <main>
-            <h1>Bienvenue dans le niveau 4.</h1>
+            <section id="about">
+                <h2>À propos de nous</h2>
+                <img class="img" src="/images/coffee.jpg" alt="Une image de café rien de plus ;)" width="200">
+                <p>Chez Café Passion, nous sommes passionnés par le café. Nous sélectionnons les meilleurs grains de café du monde entier pour offrir à nos clients une expérience exceptionnelle.</p>
+                <p>Notre équipe de baristas expérimentés se consacre à la préparation de boissons à base de café de qualité supérieure, allant des expressos riches et corsés aux cappuccinos crémeux en passant par les lattes onctueux.</p>
+            </section>
+    
+            <section id="menu">
+                <h2>Notre menu</h2>
+                <ul>
+                    <li><strong>Expresso</strong> - Un classique intemporel</li>
+                    <li><strong>Cappuccino</strong> - Parfait pour les amateurs de mousse</li>
+                    <li><strong>Latte</strong> - Crémeux et réconfortant</li>
+                    <li><strong>Mocha</strong> - Un mariage délicieux de café et de chocolat</li>
+                    <li><strong>Affogato</strong> - Une explosion de saveurs avec du café et de la glace à la vanille</li>
+                </ul>
+            </section>
+    
+            <section id="contact">
+                <h2>Contactez-nous</h2>
+                <p>Pour toute question ou réservation, n'hésitez pas à nous contacter :</p>
+                <p>Email : contact@cafepassion.com</p>
+                <p>Téléphone : +33 1 23 45 67 89</p>
+            </section>
         </main>
+    
+        <footer>
+            <p>&copy; 2024 Café Passion. Tous droits réservés.</p>
+        </footer>
     </body>
 </html>

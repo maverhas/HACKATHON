@@ -60,8 +60,8 @@ const levels = [
         id: 3,
         code: process.env.LEVEL_3_CODE,
         url: '/levels/3',
-        title: 'Niveau 3',
-        description: 'Pas mal, mais bonne chance pour celui-ci',
+        title: 'Niveau 3: Sacré Alan',
+        description: "Alan est très souvent sur la lune. Malheureusement, il a complètement oublié son mot de passe. Heureusement pour lui tu es un roi de la débrouille et tu lui as promis de récupérer son mot de passe !",
         hint: ''
     },
     {  

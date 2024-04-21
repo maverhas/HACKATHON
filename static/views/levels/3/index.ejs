@@ -1,118 +1,43 @@
 <html lang="en">
     <%- include('../../includes/head.ejs', { 'styles': [ '' ] }) %>
     <body>
-        <canvas id="gameCanvas" width="400" height="400"></canvas>
-
-        <script>
-            const canvas = document.getElementById('gameCanvas');
-            const ctx = canvas.getContext('2d');
-    
-            // Player object
-            const player = {
-                x: canvas.width / 2,
-                y: canvas.height - 30,
-                width: 20,
-                height: 20,
-                speed: 35
-            };
-    
-            // Obstacles
-            let obstacles = [];
-            const obstacleWidth = 50;
-            const obstacleHeight = 20;
-    
-            // Score
-            let score = 0;
-
-            let isPaused = false;
-    
-            // Speed of obstacles
-            let obstacleSpeed = 2;
-    
-            // Game loop
-            function gameLoop() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-                if (score > 15000) {
-                    alert("You win !");
-                    document.location.reload();
-                }
-
-                // Draw player
-                ctx.fillStyle = 'blue';
-                ctx.fillRect(player.x - player.width / 2, player.y - player.height / 2, player.width, player.height);
-    
-                // Draw obstacles
-                ctx.fillStyle = 'red';
-
-                obstacles.forEach(obstacle => {
-                    ctx.fillRect(obstacle.x - obstacleWidth / 2, obstacle.y - obstacleHeight / 2, obstacleWidth, obstacleHeight);
-                    
-                    if (!isPaused)
-                        obstacle.y += obstacleSpeed; // Adjust obstacle speed
-                });
-
-                if (!isPaused) {
-                    // Generate new obstacle
-                    if (Math.random() < 0.03) {
-                        obstacles.push({ x: Math.random() * canvas.width, y: 0 });
-                    }
-        
-                    // Check collision
-                    obstacles.forEach(obstacle => {
-                        if (
-                            player.x < obstacle.x + obstacleWidth / 2 &&
-                            player.x + player.width > obstacle.x - obstacleWidth / 2 &&
-                            player.y < obstacle.y + obstacleHeight / 2 &&
-                            player.y + player.height > obstacle.y - obstacleHeight / 2
-                        ) {
-                            alert('Game Over! Final Score: ' + score);
-                            document.location.reload();
-                        }
-                    });
-                }
-    
-                // Draw score
-                ctx.fillStyle = 'black';
-                ctx.font = '20px Arial';
-                ctx.fillText('Score: ' + score, 10, 30);
-                ctx.fillText(`Pause: ${(isPaused ? "True" : "False")}`, 10, 60);
-    
-                // Increase score
-                if (!isPaused) {
-                    score++;
-    
-                    // Increase obstacle speed gradually
-                    if (score % 100 === 0) {
-                        obstacleSpeed += 0.1;
-                    }
-                }
-    
-                requestAnimationFrame(gameLoop);
-            }
-    
-            // Handle player movement
-            function movePlayer(event) {
-
-                switch (event.key) {
-                    case 'ArrowLeft':
-                        if (isPaused) return;
-                        player.x -= player.speed;
-                        break;
-                    case 'ArrowRight':
-                        if (isPaused) return;
-                        player.x += player.speed;
-                        break;
-                    case ' ':
-                        isPaused = !isPaused;
-                        break;
-                }
-                // Keep player within canvas bounds
-                player.x = Math.max(player.width / 2, Math.min(canvas.width - player.width / 2, player.x));
-            }
-    
-            document.addEventListener('keydown', movePlayer);
-            gameLoop();
-        </script>
+        <form id="form">
+            <div>
+                <label for="u">Nom d'utilisateur:</label>
+                <input type="text" id="u" name="u">
+            </div>
+            <div>
+                <label for="p">Mot de passe:</label>
+                <input type="password" id="p" name="p">
+            </div>
+            <button type="submit">Se connecter</button>
+        </form>
     </body>
+
+    <script>
+        document.getElementById('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const d = ["dodq8;:|wkhfrghlv<<85"]
+            const u = document.getElementById('u').value;
+            const p = document.getElementById('p').value;
+
+            if (encode(u) === d[0].split("|")[0] && encode(p) === d[0].split("|")[1]) {
+                alert("Félicitation, vous pouvez utiliser le code !");
+            } else {
+                alert("Mauvais login !");
+            }
+        });
+
+        function encode(message) {
+            let messageSecret = '';
+            for (let i = 0; i < message.length; i++) {
+                let code = message.charCodeAt(i);
+                code = code + 3;
+                let caractereSecret = String.fromCharCode(code);
+                messageSecret += caractereSecret;
+            }
+            return messageSecret;
+        }
+    </script>
 </html>
