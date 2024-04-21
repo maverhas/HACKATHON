@@ -61,15 +61,15 @@ const levels = [
         url: '/levels/3',
         title: 'Niveau 3: Sacré Alan',
         description: "Alan est très souvent sur la lune. Malheureusement, il a complètement oublié son mot de passe. Heureusement pour lui tu es un roi de la débrouille et tu lui as promis de récupérer son mot de passe !",
-        hint: ''
+        hint: 'Que fais la fonction decode ?'
     },
     {  
         id: 4,
         code: "1717",
         url: '/levels/4',
-        title: 'Niveau 4',
-        description: "Wow, Impressionant ! Celui là est impossible.",
-        hint: ''
+        title: 'Niveau 4: Café Passion',
+        description: "Café Passion est une entreprise qui adore son café.",
+        hint: "J'aime énormément le café mais ce que j'aime par dessus tout ce sont les images de café !"
     },
 ];
 

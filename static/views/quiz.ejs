@@ -4,12 +4,17 @@
         <%- include('includes/navbar.ejs') %>
         <main class="container_quiz">
 
-            <h1><%= level.title %></h1>
-            <p><%= level.description %></p>
+            <h1 class="title"><%= level.title %></h1>
+            <p class="subtitle q-subtitle"><%= level.description %></p>
 
-            <a href="<%= level.url %>" target="_blank">Démarrer le challenge</a>
+            <a class="btn-link q-btn-link" href="<%= level.url %>" target="_blank">Démarrer le challenge</a>
             
-            <h3>Validation</h3>
+            <div class="q-hint-container">
+                <img src="https://cdn-icons-png.flaticon.com/512/217/217871.png">
+                <p><%= level.hint %></p>
+            </div>
+
+            <h3 class="title-2">Validation</h3>
 
             <form action="/submit" method="post" id="quizForm">
                 <label for="code">Entrer le code</label>
@@ -17,15 +22,6 @@
                 <button type="submit">Envoyer</button>
             </form>
         </main>
-        <style>
-            .container_quiz{
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            align-items: center;
-
-        }
-            </style>
         <script>
             document.getElementById('quizForm').addEventListener('submit', function(event) {
                 event.preventDefault(); // Empêcher le rechargement de la page par défaut

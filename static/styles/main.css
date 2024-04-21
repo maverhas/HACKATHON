@@ -12,6 +12,8 @@ body {
 main {
     font-family: Poppins, sans-serif;
     margin: 50px;
+    display: flex;
+    flex-direction: column;
 }
 
 .title {
@@ -20,7 +22,41 @@ main {
     margin-top: 30px;
 }
 
+.title-2 {
+    font-size: clamp(24px, 1.5vw, 50px);
+    color: black;
+    margin-top: 30px;
+}
+
 .subtitle {
-    font-size: clamp(16px, 1.67vw, 32px);
+    font-size: clamp(16px, 1.5vw, 26px);
     color: rgba(0, 0, 0, 0.85);
+}
+
+.btn-link {
+    color: #c92d6b;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5vw 1vw;
+    font-size: clamp(16px, 1vw, 26px);
+    border-radius: 10px;
+    background: transparent;
+    border: 2px solid #c92d6b;
+    margin: 0px 10px;
+    width: 300px;
+    text-align: center;
+    transition: background 0.13s ease-in-out, color 0.13s ease-in-out;
+}
+
+.btn-link:hover {
+    color: white;
+    background: #c92d6b;
+}
+
+.main-subtitle {
+    font-size: clamp(16px, 1.67vw, 32px);
+}
+
+.main-btn-link {
+    font-size: clamp(20px, 1.8vw, 30px);
 }
