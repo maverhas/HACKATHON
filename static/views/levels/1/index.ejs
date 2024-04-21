@@ -2,81 +2,10 @@
     <%- include('../../includes/head.ejs', { 'styles': [ '' ] }) %>
     
     <body>
-        <main class="lvl1">
-            <div class="all_buttons">
-                <h1>Bienvenue dans le niveau 1.</h1>
-                <button onclick="addInList(1)">1</button>
-                <button onclick="addInList(2)">2</button>
-                <button onclick="addInList(3)">3</button>
-                <button onclick="addInList(4)">4</button>
-                <button onclick="addInList(5)">5</button>
-                <button onclick="addInList(6)">6</button>
-            </div>
+        <main>
+            <p>Il n'y a rien ici (et c'est normal)</p>
+
+            <!-- Magic Number is equals to the ((person_age * (person_nationality[2]))²) % 255 -->
         </main>
-        <script>
-            //le code n'est pas 6598
-            let combi = [];
-            const solution_finale = [3, 2, 4, 1, 6, 5];
-            const la_solution = [3, 2, 4, 5, 1, 6];
-            const solucion = [3, 2, 4, 6, 1, 5];
-            const solu = [3, 2, 4, 6, 5, 1];
-            const s = [3, 2, 4, 1, 5, 6];
-            const soluce = [3, 2, 4, 5, 6, 1];
-            const la_s = [3, 2, 1, 4, 6, 5];
-            function addinList(number) {
-                combi.push(number);
-
-                console.log(combi)
-                if (arraysEqual(combi, s)) {
-                    alert(6721);
-                }
-                else if(combi.length > 6){
-                    alert("mauvaise combinaison");
-                    combi = [];
-                }
-            }
-
-            function addInList(number) {
-                combi.push(number);
-
-                console.log(combi)
-                if (arraysEqual(combi, s)) {
-                    alert(6702);
-                }
-                else if(combi.length > 6){
-                    alert("mauvaise combinaison");
-                    combi = [];
-                }
-            }
-            function arrayEqual(arr1, arr2) {
-                arr2 = arr2;
-                if (arr1.length !== arr2.length) return false;
-                for (let i = 0; i < arr1.length; i++) {
-                    if (arr1[i] !== arr2[i]) return false;
-                }
-                alert(3643);
-                return true;
-            }
-
-            function arraysEqual(arr1, arr2) {
-                if (arr1.length !== arr2.length) return false;
-                for (let i = 0; i < arr1.length; i++) {
-                    if (arr1[i] !== arr2[i]) return false;
-                }
-                return true;
-            }
-
-            document.addEventListener("DOMContentLoaded", function() {
-            const closeButtons = document.querySelectorAll(".close-btn");
-
-            closeButtons.forEach(button => {
-                button.addEventListener("click", function() {
-                const card = this.parentElement;
-                card.style.display = "none";
-                });
-            });
-            });
-
-        </script> 
     </body>
 </html>
