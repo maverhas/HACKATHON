@@ -13,13 +13,69 @@
                 justify-content: center;
                 align-items: center;
             }
-        </style>
+            .podium {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+            }
+            #podium0{
+                position: relative;
+                bottom: 0;
+                background-color: gold;
+                margin: 2px;
+                width: 100px;
+                height: 200px;
+                border-radius: 5px;
+                border-color: black;
+                
+            }
+            #podium1{
+                position: relative;
+                bottom: 0;
+                background-color: brown;
+                margin: 2px;
+                width: 100px;
+                height: 150px;
+                border-radius: 5px;
+                border-color: black;
+            }
+            #podium2{
+                position: relative;
+                bottom: 0;
+                background-color: gray;
+                margin: 2px;
+                width: 100px;
+                height: 100px;
+                border-radius: 5px;
+                border-color: black;
+            }
+
+            #podium0, #podium1, #podium2 {
+                align-self: flex-end; /* Aligner chaque élément en bas */
+            }
+
+
+            
+        </style> 
         <main>
             <h1 class="Header">Leaderboard</h1>
-            <% for (let i = 0; i < user.length; i++){%>
-                <p class="data"><%=i+1 %> <%= user[i].username%></p>
-                <p class="data"><%=user[i].HighestScore%></p>
-            <%}%>
+            <div class="podium">
+                <div id='podium2'>
+                    <p class="data">3 <%= user[2].username%></p>
+                    <p class="data"><%=user[2].HighestScore%></p>
+                </div>
+                <div id='podium0'>
+                    <p class="data">1 <%= user[0].username%></p>
+                    <p class="data"><%=user[0].HighestScore%></p>
+                </div>
+                <div id='podium1'>
+                    <p class="data">2 <%= user[1].username%></p>
+                    <p class="data"><%=user[1].HighestScore%></p>
+                </div>
+            </div>
+            
+            
         </main>
     </body>
 </html>
