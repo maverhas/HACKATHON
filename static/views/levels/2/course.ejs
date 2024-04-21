@@ -45,27 +45,24 @@
                 let clickButton = document.getElementById("clickButton")
                 
                 clickButton.addEventListener("click", function(){
-                    opacityUpdated += 0.1
                     console.log("fdsv")
                     if (opacityUpdated >= 1) {
-                        opacityUpdated -= 0.11
                         return
                     }else {
         
-                        
+                        opacityUpdated += 0.1   
                         for (let i = 0; i < element.length; i++){
                             element[i].style.opacity = opacityUpdated
                         }
                     }
                 })
                 function decrease(){
-                    opacityUpdated -= 0.1
+                    
                     console.log(opacityUpdated)
                     if (opacityUpdated <= 0) {
-                        opacityUpdated +=0.1
                         return
                     }else {
-        
+                        opacityUpdated -= 0.1
                         
                         for (let i = 0; i < element.length; i++){
                             element[i].style.opacity = opacityUpdated
