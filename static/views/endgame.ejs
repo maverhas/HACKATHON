@@ -1,0 +1,28 @@
+<html lang="en">
+    <%- include('includes/head.ejs', { 'styles': ['styles/header.css', 'styles/main.css'] }) %>
+    <body>
+        <%- include('includes/navbar.ejs') %>
+        <style>
+            .header {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .content {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        </style>
+        <main>
+            <h1 class="header">Save your personnal record !</h1>
+            <div class="content">
+            <form action="" method="post">
+                <label for="username">Username</label>
+                <input type="text" placeholder="Enter username" name="username">
+                <button type="submit">Submit</button>
+            </form>
+            </div>
+        </main>
+    </body>
+</html>

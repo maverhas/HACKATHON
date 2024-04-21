@@ -5,12 +5,12 @@ const level1Router = require('./routers/level1.js')
 const level2Router = require('./routers/level2.js')
 const level3Router = require('./routers/level3.js')
 const level4Router = require('./routers/level4.js')
+const leaderboardRouter = require('./routers/leaderboard.js')
+const endgamerouter = require('./routers/endgame.js')
 const app = express()
 const port = 3000
 const env = require('dotenv')
 const mongoose = require("mongoose")
-var login = require("./routers/login.js")
-var signup = require("./routers/signup.js")
 
 env.config();
 const uri = "mongodb+srv://verhasseltmartin:Inajoy_2024@dbhackathon.hv5fgna.mongodb.net/?retryWrites=true&w=majority&appName=DBHACKATHON";
@@ -35,8 +35,7 @@ app.use(session({
     saveUninitialized: true,
 }))
 
-app.use("/login", login)
-app.use("/signup", signup)
+
 
 const levels = [
     {  
@@ -93,13 +92,15 @@ app.use(express.static('static'));
 app.set("views", path.join(__dirname, 'static', 'views'));
 app.set("view engine", "ejs");
 
+app.use('/leaderboard', leaderboardRouter)
 app.use('/levels/1', level1Router);
 app.use('/levels/2', level2Router);
 app.use('/levels/3', level3Router);
 app.use('/levels/4', level4Router);
+app.use('/endgame', endgamerouter);
 
 app.get('/', (req, res) => {
-    res.render('index.ejs');
+    res.render('index.ejs', {data: 1});
 })
 
 app.get('/quiz', (req, res) => {
@@ -151,9 +152,6 @@ app.post('/submit', (req, res) => {
     });
 });
 
-app.get('/leaderboard', (req, res) => {
-    res.render('leaderboard.ejs');
-})
 
 app.listen(port, () => {
     console.log(`App running on port ${port}`);
