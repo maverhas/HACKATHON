@@ -1,8 +1,103 @@
 <html lang="en">
-    <%- include('../../includes/head.ejs', { 'styles': [ ] }) %>
+    <%- include('../../includes/head.ejs', { 'styles': ['../../../styles/header.css', '../../../styles/main.css'] }) %>
     <body>
+        <%- include('../../includes/navbar.ejs') %>
         <main>
-            <h1>Bienvenue dans le niveau 2.</h1>
+            <h1 class="mainhead">Bienvenue dans le niveau 2.</h1>
         </main>
+        <style>
+            .mainhead {
+                justify-content: center;
+                align-items: center;
+                display: flex;
+            }
+            .container {
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+            }
+            #clickerGame {
+                height: 250px;
+                width: 250px;
+                font-size: large;
+            }
+        </style>
+        <div class="container">
+            <h1 class="Head1">Let's warm up ! :p</h1>
+            <button id="clickerGame" disabled="true" >Click me</button>
+            <p id="counter">Count = 0</p>
+            <p id="time">Temps restant : 10 secondes</p>
+            <p id="Mean"></p>
+            <button id="tryAgain" style="display: none;">Try again ?</button>
+            <button id="start">Start</button>
+            <p id="success"></p>
+            <p id="failed"></p>
+        </div>
+        <script>
+            let timer;
+            let clickable = document.getElementById("clickerGame")
+            let counter = document.getElementById("counter")
+            let time = document.getElementById("time")
+            let mean = document.getElementById("Mean")
+            let tryAgaibutt = document.getElementById("tryAgain")
+            let start = document.getElementById("start")
+            let success = document.getElementById("success")
+            let failed = document.getElementById("failed")
+            let decount = 10
+            let count = 0
+            
+
+            start.addEventListener("click", function(){
+                start.style.display = "none"
+                timer = setInterval(decrease, 1000)
+                clickable.disabled = false
+            })
+            
+            function tryAgain(){
+                
+                count = 0
+                decount = 10
+                isok = 0
+                time.innerHTML = "Temps restant :" + decount + "secondes "
+                clickable.disabled = true
+                mean.style.display = "none"
+                counter.innerHTML = "Cliks:" + count
+                start.style.display = "block"
+                failed.style.display = "none"
+                tryAgaibutt.style.display = "none"
+            }
+            tryAgaibutt.addEventListener("click", function(){
+                tryAgain()
+            })
+
+            function decrease(){
+                if (decount <= 0){
+                    clearInterval(timer)
+                decount = 0
+                clickable.disabled = true
+                mean.innerHTML = "Mean : " + count / 10
+                tryAgaibutt.style.display = "block"
+                if (count / 10 < 1){
+                    failed.innerHTML = "Oh you failed !"
+                }else{
+                    success.innerHTML = "You did it ! Here is your reward" + "<a href='/levels/2/course'> Next </a>"
+                }
+                }else{
+                    decount--
+                    time.innerHTML = "Temps restant :" + decount + "secondes "
+                }
+                
+                
+            }
+            
+            
+
+            clickable.addEventListener("click", function(){
+                count += 1
+                counter.innerHTML = "Cliks:" + count
+                
+            })
+        </script>
     </body>
 </html>

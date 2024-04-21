@@ -1,0 +1,80 @@
+<html lang="en">
+    <%- include('../../includes/head.ejs', { 'styles': ['../../../styles/header.css', '../../../styles/main.css'] }) %>
+        
+        <style>
+            .container {
+                border: solid;
+                border-color: black;
+                border-radius: 2px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            #tiret {
+        
+            }
+            .header {
+                display: flex;
+                justify-content: center;
+            }
+            .code {
+                opacity: 0;
+                display: flex;
+                font-size: 30px;
+                justify-content: center;
+                align-items: center;
+            }
+
+        </style>
+        <body>
+            <%- include('../../includes/navbar.ejs') %>
+            <H1 class="header">Let's play seriously !</H1>
+            <div class="container">
+                <p class="code">....</p>
+                <p class="code">0</p>
+                <p class="code">.-.-</p>
+                <p class="code">-..</p>
+                <button id="clickButton"> Click Fast !</button>
+            </div>
+            <p class="code">Something seems to appear... :o</p>
+            <script>
+                setInterval(decrease, 125)
+                let opacityUpdated = 0
+                let element = document.getElementsByClassName("code")
+                let clickButton = document.getElementById("clickButton")
+                
+                clickButton.addEventListener("click", function(){
+                    console.log("fdsv")
+                    if (opacityUpdated >= 1) {
+                        return
+                    }else {
+        
+                        opacityUpdated += 0.1   
+                        for (let i = 0; i < element.length; i++){
+                            element[i].style.opacity = opacityUpdated
+                        }
+                    }
+                })
+                function decrease(){
+                    
+                    console.log(opacityUpdated)
+                    if (opacityUpdated <= 0) {
+                        return
+                    }else {
+                        opacityUpdated -= 0.1
+                        
+                        for (let i = 0; i < element.length; i++){
+                            element[i].style.opacity = opacityUpdated
+                        }
+                    }
+                }
+                
+                
+            </script>
+        </body>
+</html>
+
+
+
+
