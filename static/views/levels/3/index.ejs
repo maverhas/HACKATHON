@@ -1,17 +1,71 @@
 <html lang="en">
     <%- include('../../includes/head.ejs', { 'styles': [ '' ] }) %>
+    <style>
+        .container {
+            margin-top: 300px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+        .username {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .password {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .submitButton {
+            justify-content: center;
+            display: flex;
+            align-items: center;
+        }
+        .headers {
+            font-size: 30px;
+        }
+        .input {
+            height: 50px;
+            width: 100%;
+            font-size: 30px;
+        }
+        #submitButton {
+            margin-top: 10px;
+            font-size: 30px;
+        }
+        input[type=text]{
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+        input[type=password]{
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+    </style>
     <body>
+        <div class="container">
         <form id="form">
-            <div>
-                <label for="u">Nom d'utilisateur:</label>
-                <input type="text" id="u" name="u">
+            <div class="username">
+                <label for="u" class="headers">Nom d'utilisateur:</label>
+                <input type="text" id="u" name="u" class="input">
             </div>
-            <div>
-                <label for="p">Mot de passe:</label>
-                <input type="password" id="p" name="p">
+            <div class="password">
+                <label for="p" class="headers">Mot de passe:</label>
+                <input type="password" id="p" name="p" class="input">
             </div>
-            <button type="submit">Se connecter</button>
+            <div class="submitButton">
+                <button type="submit" id="submitButton">Se connecter</button>
+            </div>
+            
         </form>
+        </div>
     </body>
 
     <script>
