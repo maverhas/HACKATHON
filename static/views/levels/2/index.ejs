@@ -64,6 +64,7 @@
                 mean.style.display = "none"
                 counter.innerHTML = "Cliks:" + count
                 start.style.display = "block"
+                failed.style.display = "none"
                 tryAgaibutt.style.display = "none"
             }
             tryAgaibutt.addEventListener("click", function(){
@@ -77,10 +78,10 @@
                 clickable.disabled = true
                 mean.innerHTML = "Mean : " + count / 10
                 tryAgaibutt.style.display = "block"
-                if (count / 10 < 11){
+                if (count / 10 < 1){
                     failed.innerHTML = "Oh you failed !"
                 }else{
-                    success.innerHTML = "You did it !"
+                    success.innerHTML = "You did it ! Here is your reward" + "<a href='/levels/2/course'> Next </a>"
                 }
                 }else{
                     decount--
