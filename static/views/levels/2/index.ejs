@@ -99,17 +99,18 @@
         <div class="container">
             <h1 class="Head1" style="margin-bottom: 15px;">C'est parti ! Fais au moins <span style="color: rgb(178, 58, 110);">10 clicks/seconde</span>, tu pourrais avoir une surprise...</h1>
             <button id="clickerGame" class="button-19" disabled="true" style="margin-bottom: 15px;">Click me</button>
-            <p id="counter" style="font-size: 25px;margin-bottom: 15px;">Clicks:0</p>
+            <p id="counter" style="font-size: 25px;margin-bottom: 15px;">Clicks : 0</p>
             <p id="time" style="font-size: 30px;margin-bottom: 15px;">Temps restant : 10 secondes</p>
             <p id="Mean" style="font-size: 30px;margin-bottom: 15px;"></p>
-            <button id="tryAgain" style="display: none;">Try again ?</button>
-            <button id="start" style="font-size: 30px;">Start</button>
+            <button id="tryAgain" style="display: none;">Réessayer ?</button>
+            <button id="start" style="font-size: 30px;">Commencer</button>
             <p id="success" ></p>
             <p id="failed"></p>
         </div>
         <script>
             let timer;
             let clickable = document.getElementById("clickerGame")
+            clickable.disabled = true;
             let counter = document.getElementById("counter")
             let time = document.getElementById("time")
             let mean = document.getElementById("Mean")
@@ -135,7 +136,7 @@
                 time.innerHTML = "Temps restant :" + decount + " secondes "
                 clickable.disabled = true
                 mean.style.display = "none"
-                counter.innerHTML = "Cliks:" + count
+                counter.innerHTML = "Cliks : " + count
                 start.style.display = "block"
                 failed.style.display = "none"
                 success.style.display = "none"
@@ -153,7 +154,7 @@
                 mean.innerHTML = "Moyenne : " + count / 10
                 tryAgaibutt.style.display = "block"
                 
-                if (count / 10 == 10){
+                if (count / 10 < 10){
                     failed.style.display = "none"
                     failed.innerHTML = "Tu as raté...!"
                 }else{
@@ -162,7 +163,7 @@
                 }
                 }else{
                     decount--
-                    time.innerHTML = "Temps restant :" + decount + " secondes "
+                    time.innerHTML = "Temps restant : " + decount + " secondes "
                 }
                 
                 

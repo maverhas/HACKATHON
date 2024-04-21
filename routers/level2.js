@@ -5,8 +5,6 @@ router.get('/course', (req, res) => {
 })
 router.get('/', (req, res) => {
 
-    console.log(req.session.level);
-
     if (req.session.level !== 2) {
         return res.status(403).redirect('/');
     }

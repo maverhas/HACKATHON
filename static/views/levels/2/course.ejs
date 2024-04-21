@@ -3,16 +3,10 @@
         
         <style>
             .container {
-                border: solid;
-                border-color: black;
-                border-radius: 2px;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-            }
-            #tiret {
-        
             }
             .header {
                 display: flex;
@@ -25,19 +19,23 @@
                 justify-content: center;
                 align-items: center;
             }
-
+        .title {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
         </style>
         <body>
             <%- include('../../includes/navbar.ejs') %>
-            <H1 class="header">Let's play seriously !</H1>
+            <H1 class="title">Jouons sérieusement !</H1>
             <div class="container">
-                <p class="code">....</p>
-                <p class="code">0</p>
-                <p class="code">.-.-</p>
-                <p class="code">-..</p>
-                <button id="clickButton"> Click Fast !</button>
+                <p class="code" style="margin-bottom: 10px;">....</p>
+                <p class="code"style="margin-bottom: 10px;">0</p>
+                <p class="code"style="margin-bottom: 10px;">.-.-</p>
+                <p class="code"style="margin-bottom: 10px;">-..</p>
+                <button id="clickButton" style="width: 100px;height: 100px;"> Cliquez rapidement !</button>
             </div>
-            <p class="code">Something seems to appear... :o</p>
+            <p class="code">Quelque chose apparaît... :o</p>
             <script>
                 setInterval(decrease, 125)
                 let opacityUpdated = 0

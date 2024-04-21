@@ -14,18 +14,24 @@
             }
             .content {
                 display: flex;
+                flex-direction: column;
                 justify-content: center;
+                align-items: center;
+            }
+            .title {
+                justify-content: center;
+                display: flex;
                 align-items: center;
             }
         </style>
         <main>
-            <h1 class="header">Well done !</h1>
-            <h1 class="header">Save your personnal record !</h1>
+            <h1 class="title">Well done !</h1>
+            <h1 class="title">Save your personnal record !</h1>
             <div class="content">
-            <form action="" method="post">
-                <label for="username">Username</label>
-                <input type="text" placeholder="Enter username" name="username">
-                <button type="submit">Submit</button>
+            <form action="" method="post" style="display: flex;flex-direction: column;align-items: center; justify-content: center;">
+                <label for="username" style="font-size: 25px;">Username</label>
+                <input type="text" placeholder="Enter username" name="username" style="width: 200px;height: 50px;font-size: 25px;margin-bottom: 15px;">
+                <button type="submit" style="font-size: 25px;">Submit</button>
             </form>
             </div>
         </main>
