@@ -1,5 +1,26 @@
-.index{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Poppins, sans-serif;
+    background: #F1F1F1;
+}
+
+main {
+    font-family: Poppins, sans-serif;
+    margin: 50px;
+}
+
+.title {
+    font-size: clamp(32px, 5vw, 65px);
+    color: #c92d6b;
+    margin-top: 30px;
+}
+
+.subtitle {
+    font-size: clamp(16px, 1.67vw, 32px);
+    color: rgba(0, 0, 0, 0.85);
 }

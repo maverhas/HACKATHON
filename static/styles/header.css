@@ -1,8 +1,3 @@
-body{
-    margin: 0 0;
-    
-}
-
 header {
     background-color: #333;
     padding: 10px 0;
@@ -32,3 +27,67 @@ nav ul li a:hover {
     background-color: #90bed8;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.start-container {
+    margin-top: 100px;
+}
+
+.pros-container {
+    width: 90%;
+    height: 30vh;
+    margin-top: 3vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.pros-card-container {
+    /* background: green; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0px 3.5vw;
+    padding: 35px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.12);
+    border-radius: 50px;
+    width: 18vw;/*380px;*/
+    min-width: 225px;
+    height: 100%;
+}
+
+.pros-card-container img {
+    width: clamp(50px, 14vw, 180px);
+    margin-bottom: 10px;
+}
+
+.pros-card-container p {
+    font-size: clamp(20px, 1.4vw, 40px);
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.tab-link {
+    color: #c92d6b;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5vw 1vw;
+    font-size: clamp(20px, 1.8vw, 30px);
+    border-radius: 10px;
+    background: transparent;
+    border: 2px solid #c92d6b;
+    margin: 0px 10px;
+    transition: background 0.13s ease-in-out, color 0.13s ease-in-out;
+}
+
+.tab-link:hover {
+    color: white;
+    background: #c92d6b;
+}
