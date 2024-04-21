@@ -9,6 +9,14 @@
                 align-items: center;
             }
             */
+            .subpodium {
+                margin-top: 15px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 250px;
+            }
             .data {
                 color: black;
                 font-weight: 600;
@@ -101,6 +109,11 @@
                         <p class="data"><%= user[1].username%></p>
                     <% } %>
                 </div>
+            </div>
+            <div class="subpodium">
+                <% for (let i = 3; i < user.length; i++){%>
+                    <p style="margin-bottom: 5px;"> <%=i%>. <%= user[i].username %></p>
+                <%}%>
             </div>
         </main>
     </body>
