@@ -42,17 +42,16 @@ const levels = [
         id: 1,
         code: "6702",
         url: '/levels/1',
-        title: 'Niveau 1',
-        hint: "inspect la page",
-        category: 'Sténographie',
-        description: "Trouve les bonnes combinaisons dans le bon ordre",
+        title: 'Niveau 1: Deadlock',
+        description: "Le deadlock est le cadenas le moins securisé du monde...",
+        hint: "N'essaie pas toutes les combinaisons :')",
     },
     {
         id: 2,
         code: "8034",
         url: '/levels/2',
-        title: 'Niveau 2',
-        description: 'Celui là va probablement te casser le crâne.',
+        title: 'Niveau 2: Vite vite, toujours plus vite !',
+        description: 'Ne gaspillez plus de temps. Cliquez vite, encore plus vite.',
         hint: ''
     },
     {  
@@ -61,15 +60,15 @@ const levels = [
         url: '/levels/3',
         title: 'Niveau 3: Sacré Alan',
         description: "Alan est très souvent sur la lune. Malheureusement, il a complètement oublié son mot de passe. Heureusement pour lui tu es un roi de la débrouille et tu lui as promis de récupérer son mot de passe !",
-        hint: ''
+        hint: 'Que fais la fonction decode ?'
     },
     {  
         id: 4,
         code: "1717",
         url: '/levels/4',
-        title: 'Niveau 4',
-        description: "Wow, Impressionant ! Celui là est impossible.",
-        hint: ''
+        title: 'Niveau 4: Café Passion',
+        description: "Café Passion est une entreprise qui adore son café.",
+        hint: "J'aime énormément le café mais ce que j'aime par dessus tout ce sont les images de café !"
     },
 ];
 

@@ -4,6 +4,9 @@ const User = require("../DATABASE/user")
 
 
 router.get('/', (req, res) => {
+    req.session.time = new Date().getTime() - req.session.time 
+    console.log("It took that time")
+    console.log(req.session.time)
     res.render("save.ejs")
 })
 

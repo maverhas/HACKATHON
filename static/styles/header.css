@@ -73,21 +73,3 @@ nav ul li a:hover {
     font-weight: 600;
     color: rgba(0, 0, 0, 0.7);
 }
-
-.tab-link {
-    color: #c92d6b;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 0.5vw 1vw;
-    font-size: clamp(20px, 1.8vw, 30px);
-    border-radius: 10px;
-    background: transparent;
-    border: 2px solid #c92d6b;
-    margin: 0px 10px;
-    transition: background 0.13s ease-in-out, color 0.13s ease-in-out;
-}
-
-.tab-link:hover {
-    color: white;
-    background: #c92d6b;
-}

@@ -8,7 +8,8 @@ router.get('/', (req, res) => {
     if (req.session.level !== 1) {
         return res.status(403).redirect('/');
     }
-
+    req.session.time = new Date().getTime();
+    console.log(req.session.time)
     res.render('levels/1/index.ejs');
 });
 

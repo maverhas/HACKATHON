@@ -2,31 +2,52 @@
     <%- include('includes/head.ejs', { 'styles': [ 'styles/header.css','styles/quiz.css' ] }) %>
     <body>        
         <%- include('includes/navbar.ejs') %>
+        <main class="container_quiz">
 
-    <main class="container_quiz">
-        <h1><%= level.title %></h1>
-        <p><%= level.description %></p>
-        <a href="<%= level.url %>" target="_blank">Démarrer le challenge</a>
-        <h3>Validation</h3>
-        <form action="/submit" method="post" id="quizForm">
-            <label for="code">Entrer le code</label>
-            <input type="text" id="code" name="code"/>
-            <button type="submit">Envoyer</button>
-        </form>
-    </main>
-<style>
-    
-    .container_quiz {
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-        padding: 60px 30px;
-        justify-content: space-around;
-        
-    }
-    .container_quiz > * {
-    margin-bottom: 20px; /* Ajouter un espace de 20 pixels entre chaque élément */
-}
-</style>
+            <h1 class="title"><%= level.title %></h1>
+            <p class="subtitle q-subtitle"><%= level.description %></p>
+
+            <a class="btn-link q-btn-link" href="<%= level.url %>" target="_blank">Démarrer le challenge</a>
+            
+            <% if (level.hint) { %>
+            <div class="q-hint-container">
+                <img src="https://cdn-icons-png.flaticon.com/512/217/217871.png">
+                <p><%= level.hint %></p>
+            </div>
+            <% } %>
+
+            <h3 class="title-2">Validation</h3>
+
+            <form action="/submit" method="post" id="quizForm">
+                <label for="code">Entrer le code</label>
+                <input type="text" id="code" name="code"/>
+                <button type="submit">Envoyer</button>
+            </form>
+        </main>
+        <script>
+            document.getElementById('quizForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Empêcher le rechargement de la page par défaut
+
+                var code = document.getElementById('code').value;
+                fetch('/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ code: code })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert("Mauvais code");
+                    } else {
+                        alert("Bravo !");
+                        window.location.reload();
+                        document.getElementById('code').value = '';
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            });
+        </script>
+    </body>
+</html>
