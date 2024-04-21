@@ -3,13 +3,24 @@
     <body>
         <%- include('../../includes/navbar.ejs') %>
         <main>
+            <div class="containermainhead">
             <h1 class="mainhead">Bienvenue dans le niveau 2.</h1>
+            </div>
         </main>
         <style>
-            .mainhead {
+            .containermainhead{
                 justify-content: center;
                 align-items: center;
                 display: flex;
+            }
+            .mainhead {
+                background-image: linear-gradient(to bottom, rgba(97, 75, 165, 0.5), rgba(59, 178, 248, 0.5));
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                height: 100px;
+                width: 700px;
+                border-radius: 100px;
             }
             .container {
                 justify-content: center;
@@ -17,21 +28,83 @@
                 display: flex;
                 flex-direction: column;
             }
-            #clickerGame {
-                height: 250px;
-                width: 250px;
-                font-size: large;
-            }
+
+        /* CSS */
+        .button-19 {
+        appearance: button;
+        background-color: #1899D6;
+        border: solid transparent;
+        border-radius: 16px;
+        border-width: 0 0 4px;
+        box-sizing: border-box;
+        color: #FFFFFF;
+        cursor: pointer;
+        display: inline-block;
+        font-family: din-round,sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: .8px;
+        line-height: 20px;
+        margin: 0;
+        outline: none;
+        overflow: visible;
+        padding: 13px 16px;
+        text-align: center;
+        text-transform: uppercase;
+        touch-action: manipulation;
+        transform: translateZ(0);
+        transition: filter .2s;
+        user-select: none;
+        -webkit-user-select: none;
+        vertical-align: middle;
+        white-space: nowrap;
+        width: 250px;
+        height: 250px;
+        }
+
+        .button-19:after {
+        background-clip: padding-box;
+        background-color: #1CB0F6;
+        border: solid transparent;
+        border-radius: 16px;
+        border-width: 0 0 4px;
+        bottom: -4px;
+        content: "";
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: -1;
+        }
+
+        .button-19:main,
+        .button-19:focus {
+        user-select: auto;
+        }
+
+        .button-19:hover:not(:disabled) {
+        filter: brightness(1.1);
+        -webkit-filter: brightness(1.1);
+        }
+
+        .button-19:disabled {
+        cursor: auto;
+        }
+
+        .button-19:active {
+        border-width: 4px 0 0;
+        background: none;
+        }
         </style>
         <div class="container">
-            <h1 class="Head1">Let's warm up ! :p</h1>
-            <button id="clickerGame" disabled="true" >Click me</button>
-            <p id="counter">Count = 0</p>
+            <h1 class="Head1">C'est parti ! Fais au moins <span style="color: blue;">10 clicks/seconde</span>, tu pourrais avoir une surprise...</h1>
+            <button id="clickerGame" class="button-19" disabled="true" >Click me</button>
+            <p id="counter">Clicks:0</p>
             <p id="time">Temps restant : 10 secondes</p>
             <p id="Mean"></p>
             <button id="tryAgain" style="display: none;">Try again ?</button>
             <button id="start">Start</button>
-            <p id="success"></p>
+            <p id="success" ></p>
             <p id="failed"></p>
         </div>
         <script>
@@ -59,12 +132,13 @@
                 count = 0
                 decount = 10
                 isok = 0
-                time.innerHTML = "Temps restant :" + decount + "secondes "
+                time.innerHTML = "Temps restant :" + decount + " secondes "
                 clickable.disabled = true
                 mean.style.display = "none"
                 counter.innerHTML = "Cliks:" + count
                 start.style.display = "block"
                 failed.style.display = "none"
+                success.style.display = "none"
                 tryAgaibutt.style.display = "none"
             }
             tryAgaibutt.addEventListener("click", function(){
@@ -76,16 +150,19 @@
                     clearInterval(timer)
                 decount = 0
                 clickable.disabled = true
-                mean.innerHTML = "Mean : " + count / 10
+                mean.innerHTML = "Moyenne : " + count / 10
                 tryAgaibutt.style.display = "block"
+                
                 if (count / 10 < 1){
-                    failed.innerHTML = "Oh you failed !"
+                    failed.style.display = "none"
+                    failed.innerHTML = "Tu as raté...!"
                 }else{
-                    success.innerHTML = "You did it ! Here is your reward" + "<a href='/levels/2/course'> Next </a>"
+                    success.style.display = "block"
+                    success.innerHTML = "Tu l'as fait! Voilà ton" + "<a href='/levels/2/course' style='text-decoration: none'> Cadeau </a>"
                 }
                 }else{
                     decount--
-                    time.innerHTML = "Temps restant :" + decount + "secondes "
+                    time.innerHTML = "Temps restant :" + decount + " secondes "
                 }
                 
                 
