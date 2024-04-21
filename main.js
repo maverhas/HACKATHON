@@ -42,17 +42,16 @@ const levels = [
         id: 1,
         code: "6702",
         url: '/levels/1',
-        title: 'Niveau 1',
-        hint: "Va plus loin que le bout de ton nez",
-        category: 'Sténographie',
-        description: "Trouve les bonnes combinaisons dans le bon ordre mais gare à toi, le net est parsemé de publicités à gogo",
+        title: 'Niveau 1: Deadlock',
+        description: "Le deadlock est le cadenas le moins securisé du monde...",
+        hint: "N'essaie pas toutes les combinaisons :')",
     },
     {
         id: 2,
         code: "8034",
         url: '/levels/2',
-        title: 'Niveau 2',
-        description: 'Celui là va probablement te casser le crâne.',
+        title: 'Niveau 2: Vite vite, toujours plus vite !',
+        description: 'Ne gaspillez plus de temps. Cliquez vite, encore plus vite.',
         hint: ''
     },
     {  
