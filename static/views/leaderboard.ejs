@@ -1,29 +1,34 @@
 <html lang="en">
-    <%- include('includes/head.ejs', { 'styles': ['styles/header.css', 'styles/main.css'] }) %>
+    <%- include('includes/head.ejs', { 'styles': ['styles/header.css', 'styles/main.css', 'styles/leaderboard.css'] }) %>
     <body>
         <%- include('includes/navbar.ejs') %>
         <style>
-            .Header {
+            /* .Header {
                 display: flex;
                 justify-content: center;
                 align-items: center;
             }
+            */
             .data {
-                display: flex;
-                justify-content: center;
-                align-items: center;
+                color: black;
+                font-weight: 600;
+                font-size: 20px;
+                position: absolute;
+                top: -35px;
             }
+
             .podium {
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
                 align-items: center;
+                margin-top: 100px;
             }
             #podium0{
                 position: relative;
                 bottom: 0;
-                background-color: gold;
-                margin: 2px;
+                background-color: rgb(209, 51, 90);
+                margin: 4px;
                 width: 100px;
                 height: 200px;
                 border-radius: 5px;
@@ -33,8 +38,8 @@
             #podium1{
                 position: relative;
                 bottom: 0;
-                background-color: brown;
-                margin: 2px;
+                background-color: rgb(176, 66, 134);
+                margin: 4px;
                 width: 100px;
                 height: 150px;
                 border-radius: 5px;
@@ -43,39 +48,60 @@
             #podium2{
                 position: relative;
                 bottom: 0;
-                background-color: gray;
-                margin: 2px;
+                background-color: rgb(137, 78, 130);
+                margin: 4px;
                 width: 100px;
                 height: 100px;
                 border-radius: 5px;
                 border-color: black;
             }
 
+            #podium0 img {
+                width: 25px;
+                position: absolute;
+                left: 50%;
+                top: -60px;
+                transform: translate(-50%);
+            }
+
             #podium0, #podium1, #podium2 {
                 align-self: flex-end; /* Aligner chaque élément en bas */
             }
 
-
+            p {
+                margin: 0 20%;
+                text-align: center;
+            }
             
         </style> 
         <main>
-            <h1 class="Header">Leaderboard</h1>
+            <h1 class="title">Leaderboard</h1>
+
+            <% if (user.length === 0) { %>
+                <p class="subtitle">Aucun joueur n'a encore réussi à terminer le quiz ! Donnez tout pour être le premier. 😈</p>
+            <% } else if (user.length < 3) { %>
+                <p class="subtitle">Il ne reste plus que <%= 3 - user.length %> places sur le podium ! Faites vite avant que quelqu'un ne prenne votre place ! 👑</p>
+            <% } else { %>
+            <p class="subtitle">Voici le nom des 3 meilleurs joueurs !</p>
+            <% } %>
             <div class="podium">
                 <div id='podium2'>
-                    <p class="data">3 <%= user[2].username%></p>
-                    <p class="data"><%=user[2].HighestScore%></p>
+                    <% if (user[2]) { %>
+                    <p class="data"><%= user[2].username%></p>
+                    <% } %>
                 </div>
                 <div id='podium0'>
-                    <p class="data">1 <%= user[0].username%></p>
-                    <p class="data"><%=user[0].HighestScore%></p>
+                    <% if (user[0]) { %>
+                        <p class="data"><%= user[0].username%></p>
+                        <img src="https://cdn-icons-png.freepik.com/512/6719/6719105.png">
+                    <% } %>
                 </div>
                 <div id='podium1'>
-                    <p class="data">2 <%= user[1].username%></p>
-                    <p class="data"><%=user[1].HighestScore%></p>
+                    <% if (user[1]) { %>
+                        <p class="data"><%= user[1].username%></p>
+                    <% } %>
                 </div>
             </div>
-            
-            
         </main>
     </body>
 </html>

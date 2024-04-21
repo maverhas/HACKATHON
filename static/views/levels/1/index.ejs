@@ -1,5 +1,5 @@
 <html lang="en">
-    <%- include('../../includes/head.ejs', { 'styles': [ ] }) %>
+    <%- include('../../includes/head.ejs', { 'styles': [ '' ] }) %>
     
     <body>
         <main class="lvl1">
@@ -13,105 +13,6 @@
                 <button onclick="addInList(6)">6</button>
             </div>
         </main>
-        <style>
-            .lvl1{
-                justify-content: center;
-            }
-            .all_button{
-
-                display: flex;
-                justify-content: center;
-                z-index: 0;
-                flex-direction: row;
-
-            }
-            .card {
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 20px;
-
-            width: 95%;
-            height: 100%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: absolute;
-            background-color: white;
-            left: 0;
-            top: 0;
-            z-index: 100;
-            
-            }
-            .card4 {
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 20px;
-
-            width: 95%;
-            height: 100%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: absolute;
-            background-color: white;
-            left: 0;
-            top: 0;
-            z-index: 101;
-            
-            }
-
-            .card2 {
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 20px;
-
-            width: 95%;
-            height: 100%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: absolute;
-            background-color: white;
-            left: 0;
-            top: 0;
-            z-index: 70;
-            
-            }
-            .card3 {
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 20px;
-
-            width: 95%;
-            height: 100%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: absolute;
-            background-color: white;
-            left: 0;
-            top: 0;
-            z-index: 50;
-            
-            }
-
-            .close-btn {
-            position: absolute;
-            top: 5px;
-            right: 10px;
-            font-size: 24px;
-            cursor: pointer;
-            }
-
-            .not-close-btn{
-                position: absolute;
-                top: 5px;
-                right: 10px;
-                font-size: 24px;
-                cursor: pointer;
-            }
-
-            .close-btn:hover {
-            color: red;
-            }
-            .main{
-                display: flex;
-                flex-direction: column;
-            }
-
-        </style>
         <script>
             //le code n'est pas 6598
             let combi = [];
