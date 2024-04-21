@@ -13,8 +13,12 @@ var login = require("./routers/login.js")
 var signup = require("./routers/signup.js")
 
 env.config();
+<<<<<<< HEAD
 // const uri = process.env.MONGODB_URI;
 const uri = "mongodb+srv://verhasseltmartin:<password>@dbhackathon.hv5fgna.mongodb.net/?retryWrites=true&w=majority&appName=DBHACKATHON";
+=======
+    const uri = "mongodb+srv://verhasseltmartin:<password>@dbhackathon.hv5fgna.mongodb.net/?retryWrites=true&w=majority&appName=DBHACKATHON";
+>>>>>>> b32aad8 (Ajout)
 
 mongoose.connect(uri)
 .then(() => {
@@ -42,7 +46,7 @@ app.use("/signup", signup)
 const levels = [
     {  
         id: 1,
-        code: process.env.LEVEL_1_CODE,
+        code: "6702",
         url: '/levels/1',
         title: 'Niveau 1',
         hint: "pop up",
