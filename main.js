@@ -13,7 +13,8 @@ var login = require("./routers/login.js")
 var signup = require("./routers/signup.js")
 
 env.config();
-const uri = process.env.MONGODB_URI;
+// const uri = process.env.MONGODB_URI;
+const uri = "mongodb+srv://verhasseltmartin:<password>@dbhackathon.hv5fgna.mongodb.net/?retryWrites=true&w=majority&appName=DBHACKATHON";
 
 mongoose.connect(uri)
 .then(() => {
