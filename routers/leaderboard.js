@@ -3,6 +3,7 @@ const router = express.Router()
 const User = require("../DATABASE/user")
 
 router.get('/', (req, res) => {
+    console.log(req.session.time)
     const user = User.find()
     .then((docs) => {
         console.log(docs)
