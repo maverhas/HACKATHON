@@ -1,8 +1,12 @@
 <html lang="en">
-    <%- include('includes/head.ejs', { 'styles': [ 'styles/header.css' ] }) %>
+    <%- include('includes/head.ejs', { 'styles': [ 'styles/header.css','styles/quiz.css' ] }) %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <body>        
         <%- include('includes/navbar.ejs') %>
-        <main>
+        <main class="container_quiz">
+
             <h1><%= level.title %></h1>
             <p><%= level.description %></p>
 
@@ -16,7 +20,15 @@
                 <button type="submit">Envoyer</button>
             </form>
         </main>
+        <style>
+            .container_quiz{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
 
+        }
+            </style>
         <script>
             document.getElementById('quizForm').addEventListener('submit', function(event) {
                 event.preventDefault(); // Empêcher le rechargement de la page par défaut
