@@ -2,8 +2,24 @@
     <%- include('includes/head.ejs', { 'styles': ['styles/header.css', 'styles/main.css'] }) %>
     <body>
         <%- include('includes/navbar.ejs') %>
+        <style>
+            .Header {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .data {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        </style>
         <main>
-            <h1>leaderboard</h1>
+            <h1 class="Header">Leaderboard</h1>
+            <% for (let i = 0; i < user.length; i++){%>
+                <p class="data"><%=i+1 %> <%= user[i].username%></p>
+                <p class="data"><%=user[i].HighestScore%></p>
+            <%}%>
         </main>
     </body>
 </html>
