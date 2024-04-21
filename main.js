@@ -84,8 +84,6 @@ app.post('/submit', (req, res) => {
     if (!req.session.level) {
         return res.status(403).redirect('/');
     }
-
-    console.log(req.session.level);
     
     const level = temp(req.session.level);
     if (!level) {
