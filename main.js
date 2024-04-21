@@ -44,7 +44,7 @@ const levels = [
         url: '/levels/1',
         title: 'Niveau 1: Deadlock',
         description: "Le deadlock est le cadenas le moins securisé du monde...",
-        hint: "N'essaie pas toutes les combinaisons :')",
+        hint: "N'essaie pas toutes les combinaisons.",
     },
     {
         id: 2,
