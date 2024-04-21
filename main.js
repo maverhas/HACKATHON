@@ -13,7 +13,8 @@ var login = require("./routers/login.js")
 var signup = require("./routers/signup.js")
 
 env.config();
-const uri = process.env.MONGODB_URI;
+// const uri = process.env.MONGODB_URI;
+const uri = "mongodb+srv://verhasseltmartin:<password>@dbhackathon.hv5fgna.mongodb.net/?retryWrites=true&w=majority&appName=DBHACKATHON";
 
 mongoose.connect(uri)
 .then(() => {
@@ -44,9 +45,9 @@ const levels = [
         code: process.env.LEVEL_1_CODE,
         url: '/levels/1',
         title: 'Niveau 1',
-        hint: "Va plus loin que le bout de ton nez",
-        category: 'Sténographie',
-        description: "Remue toi les balôches on sent que t'as la pétoche",
+        hint: "pop up",
+        category: 'Stegonographt',
+        description: "Trouve les bonnes combinaisons mais gare à toi, le net est parsemé de publicités à gogo",
     },
     {
         id: 2,
